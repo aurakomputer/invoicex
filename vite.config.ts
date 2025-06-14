@@ -8,7 +8,11 @@ const host = process.env.TAURI_DEV_HOST;
 
 // https://vitejs.dev/config/
 export default defineConfig(async () => ({
-  plugins: [vue({ template: { transformAssetUrls } }), quasar(), UnoCSS()],
+  plugins: [
+    vue({ template: { transformAssetUrls } }),
+    quasar({ autoImportComponentCase: "combined" }),
+    UnoCSS(),
+  ],
   clearScreen: false,
   server: {
     port: 1420,

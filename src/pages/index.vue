@@ -1,10 +1,23 @@
-<template>
-  <div>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro quam maiores,
-    neque similique labore quaerat exercitationem itaque sapiente earum et,
-    quasi consequatur eligendi aperiam doloribus non laborum fugit inventore
-    quae!
+<template lang="pug">
+  .heading-actions
+    QBtn(label="Create" color="primary" icon="mdi-plus" push @click="create")
 
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus ab illo cum dolorum, sed quibusdam cumque officia unde autem dolorem repellendus mollitia distinctio! Mollitia consectetur quod illo minus, aperiam amet.
-  </div>
 </template>
+
+<script setup lang="ts">
+import Form from "../dialogs/form.vue";
+import { Dialog } from "quasar";
+const props = defineProps<{
+  schema: string;
+}>();
+
+function create(): void {
+  Dialog.create({
+    component: Form,
+    componentProps: {
+      schema: props.schema,
+      action: "create",
+    },
+  }).onOk(() => {});
+}
+</script>
