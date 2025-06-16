@@ -24,6 +24,18 @@ q-layout(class="bg-grey-1")
         div(v-for="(data, schema) in schemas")
           RouterLink(:to="{name: 'index', params: {schema}}" class="text-white") {{ schema }}
       q-space
+      q-btn(
+        @click="reload()"
+        round
+        dense
+        flat
+        :ripple="false"
+        :icon="mdiRefresh"
+        size="19px"
+        color="white"
+        class="q-mr-sm"
+        no-caps
+      )
 
   q-page-container
     q-page(padding)
@@ -31,6 +43,9 @@ q-layout(class="bg-grey-1")
 </template>
 
 <script setup>
-import { mdiInvoice } from "@quasar/extras/mdi-v7";
+import { mdiInvoice, mdiRefresh } from "@quasar/extras/mdi-v7";
 import schemas from "./schemas";
+function reload() {
+  window.location.reload();
+}
 </script>

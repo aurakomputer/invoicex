@@ -1,7 +1,8 @@
 const schemas = {
   customers: {
     form: {
-      phoneNumber: "string",
+      name: "text",
+      phoneNumber: "text",
       address: "textarea",
     },
   },
